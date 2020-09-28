@@ -2,20 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Author {
+    //Declaring class fields
     private String name;
     private int age;
     private List<Song> songs;
 
+    // Constructor with parameters - name and age, and initializing the list of songs
     public Author(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.songs = new ArrayList<>();
+        this.setName(name);
+        this.setAge(age);
+        this.setSongs(new ArrayList<>());
     }
 
+    // method to print the authors name and age
     public void printAuthorNameAndAge(){
         System.out.printf("%s - %d%n", this.getName(), this.getAge());
     }
-    
+
+    // Using StringBuilder and a for loop to create a string representation of
+    // the author name and the list of songs he has created
     public String listAuthorWithSongs(){
         StringBuilder sb = new StringBuilder();
 
@@ -27,6 +32,8 @@ public class Author {
 
         return sb.toString();
     }
+
+    //Getters and Setters for the class fields
 
     public String getName() {
         return name;

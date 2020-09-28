@@ -1,29 +1,34 @@
-import org.w3c.dom.ls.LSOutput;
 
 public class Song {
+    // Declaring class fields
     private String title;
     private String genre;
     private int timing;
     private String lyrics;
 
+    //Constructor with parameters, initializing the class fields
     public Song(String title, String genre, int timing, String lyrics) {
-        this.title = title;
-        this.genre = genre;
-        this.timing = timing;
-        this.lyrics = lyrics;
+        this.setTitle(title);
+        this.setGenre(genre);
+        this.setTiming(timing);
+        this.setLyrics(lyrics);
     }
 
+    //method to print the songs lyrics on the console
     public void printSongLyrics(){
-        System.out.println(this.lyrics);
+        System.out.println(this.getLyrics());
     }
 
+    //method to print the song duration - mm:ss
     public void printSongDuration(){
-        int minutes = this.timing / 60;
-        int seconds = this.timing % 60;
+        int minutes = this.getTiming() / 60;
+        int seconds = this.getTiming() % 60;
 
         System.out.println("Song duration: " + minutes + ":" + seconds);
     }
 
+    //method checking if provided genre is the same as song's genre
+    //and returning result as massage
     public void checkIfGenresMatch(String genreToMatch){
         if (this.getGenre().toLowerCase().equals(genreToMatch.toLowerCase())){
             System.out.println("Genres match!");
@@ -32,6 +37,7 @@ public class Song {
         }
     }
 
+    //Overriding the toString() method to print the song's characteristics as wanted
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -43,6 +49,8 @@ public class Song {
 
         return sb.toString();
     }
+
+    // Getters and Setters for the class fields
 
     public String getTitle() {
         return title;
