@@ -5,6 +5,9 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+/**
+ *
+ */
 public class SongTests {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private Song testSong;

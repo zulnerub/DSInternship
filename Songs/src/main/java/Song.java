@@ -1,4 +1,6 @@
-
+/**
+ *
+ */
 public class Song {
     // Declaring class fields
     private String title;
