@@ -1,86 +1,66 @@
-
+/**
+ * Create object song has fields title, genre, timing, lyrics.
+ * Has methods to print lyrics, get title, print song duration, to check if genres match/don't match with supplied genre.
+ */
 public class Song {
-    // Declaring class fields
     private String title;
     private String genre;
     private int timing;
     private String lyrics;
 
-    //Constructor with parameters, initializing the class fields
     public Song(String title, String genre, int timing, String lyrics) {
-        this.setTitle(title);
-        this.setGenre(genre);
-        this.setTiming(timing);
-        this.setLyrics(lyrics);
+        this.title = title;
+        this.genre = genre;
+        this.timing = timing;
+        this.lyrics = lyrics;
     }
 
-    //method to print the songs lyrics on the console
-    public void printSongLyrics(){
-        System.out.println(this.getLyrics());
-    }
-
-    //method to print the song duration - mm:ss
-    public void printSongDuration(){
-        int minutes = this.getTiming() / 60;
-        int seconds = this.getTiming() % 60;
-
-        System.out.println("Song duration: " + minutes + ":" + seconds);
-    }
-
-    //method checking if provided genre is the same as song's genre
-    //and returning result as massage
-    public void checkIfGenresMatch(String genreToMatch){
-        if (this.getGenre().toLowerCase().equals(genreToMatch.toLowerCase())){
-            System.out.println("Genres match!");
-        }else{
-            System.out.println("Genre doesn't match!");
-        }
-    }
-
-    //Overriding the toString() method to print the song's characteristics as wanted
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Song Details:").append(System.lineSeparator());
-        sb.append("\t* Title: ").append(this.getTitle()).append(System.lineSeparator());
-        sb.append("\t* Genre: ").append(this.getGenre()).append(System.lineSeparator());
-        sb.append("\t* Timing: ").append(this.getTiming()).append(System.lineSeparator());
-        sb.append("\t* Lyrics: ").append(this.getLyrics()).append(System.lineSeparator());
-
-        return sb.toString();
-    }
-
-    // Getters and Setters for the class fields
-
+    /**
+     * @return song's title;
+     */
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public int getTiming() {
-        return timing;
-    }
-
-    public void setTiming(int timing) {
-        this.timing = timing;
-    }
-
-    public String getLyrics() {
+    /**
+     * @return song's lyrics
+     */
+    public String printSongLyrics() {
         return lyrics;
     }
 
-    public void setLyrics(String lyrics) {
-        this.lyrics = lyrics;
+    /**
+     * @return the song's duration formated in minutes and seconds - mm:ss
+     */
+    public String printSongDuration() {
+        int minutes = timing / 60;
+        int seconds = timing % 60;
+
+        return "Song duration: " + minutes + ":" + seconds;
+    }
+
+    /**
+     * @param genreToMatch provided genre to compare with references genre
+     * @return string representing whether the genres match or not
+     */
+    public String checkIfGenresMatch(String genreToMatch) {
+        if (genre.toLowerCase().equals(genreToMatch.toLowerCase())) {
+            return "Genres match!";
+        } else {
+            return "Genre doesn't match!";
+        }
+    }
+
+    /**
+     * @return String - song's details - title, genre, timing, lyrics
+     */
+    @Override
+    public String toString() {
+
+        return "Song Details:" + System.lineSeparator() +
+                "\t* Title: " + title + System.lineSeparator() +
+                "\t* Genre: " + genre + System.lineSeparator() +
+                "\t* Timing: " + timing + System.lineSeparator() +
+                "\t* Lyrics: " + lyrics + System.lineSeparator();
     }
 }
