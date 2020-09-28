@@ -1,60 +1,47 @@
 /**
- *
+ * Application for creating songs and authors and using methods for manipulating them.
  */
 public class Application {
 
     public static void main(String[] args) {
 
-        // Create songs
-        Song songOne = new Song("Points of authority","Rock", 267, "Lorem, ipsum ....");
-        Song songTwo = new Song("Random song title","Pop", 267, "Random lyrics for the random song");
-        Song songThree = new Song("Metamorphosis","Dubstep", 267, "This song has no Lyrics");
+        /*
+         * Creating sample songs
+         */
+        Song pointsOfAuthority = new Song("Points of authority", "Rock", 267, "Lorem, ipsum ....");
+        Song summerChillOut = new Song("Summer chill out", "Pop", 267, "Random lyrics for the random song");
+        Song dubstep = new Song("Metamorphosis", "Dubstep", 267, "This song has no Lyrics");
 
+        /*
+         * Creating sample author
+         */
+        Author chesterBenington = new Author("Chester Benington", 33);
 
-        //Create author
-        Author authorOne = new Author();
-        try {
-            authorOne.setName("Chester");
-            authorOne.setAge(20);
-            authorOne.getSongs().add(songOne);
-            authorOne.getSongs().add(songTwo);
-            authorOne.getSongs().add(songThree);
-        }catch (IllegalArgumentException ex){
-            System.out.println(ex.getMessage());
-        }
+        chesterBenington.addSong(pointsOfAuthority);
+        chesterBenington.addSong(summerChillOut);
+        chesterBenington.addSong(dubstep);
 
+        /*
+         * Manipulations with songs and their methods
+         */
+        System.out.println(pointsOfAuthority.toString());
 
+        System.out.println("Genre to compare - Rock\n" +
+                pointsOfAuthority.checkIfGenresMatch("Rock") + "\n");
 
-        // Print song details
-        System.out.println(songOne.toString());
+        System.out.println("Genre to compare - pop\n" +
+                pointsOfAuthority.checkIfGenresMatch("pop") + "\n");
 
-        // Genre match check
-        System.out.println("Genre to compare - Rock");
-        songOne.checkIfGenresMatch("Rock");
-        System.out.println();
+        System.out.println(pointsOfAuthority.printSongDuration() + "\n");
 
-        System.out.println("Genre to compare - pop");
-        songOne.checkIfGenresMatch("pop");
-        System.out.println();
+        System.out.println("Lyrics:\n" +
+                pointsOfAuthority.printSongLyrics() + "\n");
 
-        // Print song duration
-        songOne.printSongDuration();
-        System.out.println();
+        /*
+         * Manipulation with authors and their methods
+         */
+        System.out.println(chesterBenington.toString() + "\n");
 
-        // Print song lyrics
-        System.out.println("Lyrics:");
-        songOne.printSongLyrics();
-        System.out.println();
-
-        //Print Author name and age
-
-            authorOne.printAuthorNameAndAge();
-
-
-
-
-
-        //Print Author with songs
-        System.out.println(authorOne.listAuthorWithSongs());
+        System.out.println(chesterBenington.listAuthorsSongs());
     }
 }

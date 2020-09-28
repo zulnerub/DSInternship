@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 /**
  *
- */
+
 public class SongTests {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private Song testSong;
@@ -44,3 +44,4 @@ public class SongTests {
     }
 
 }
+ */
