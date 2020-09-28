@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class Author {
     //Declaring class fields
     private String name;
@@ -14,9 +17,18 @@ public class Author {
         this.setSongs(new ArrayList<>());
     }
 
+    public Author() {
+        this.setSongs(new ArrayList<>());
+    }
+
     // method to print the authors name and age
     public void printAuthorNameAndAge(){
-        System.out.printf("%s - %d%n", this.getName(), this.getAge());
+        if (this.age != 0){
+            System.out.printf("%s - %d%n", this.getName(), this.getAge());
+        }else{
+            System.out.println("Author age is not valid!");
+        }
+
     }
 
     // Using StringBuilder and a for loop to create a string representation of
@@ -26,9 +38,12 @@ public class Author {
 
         sb.append("Author name: ").append(this.name).append(", List of songs:").append(System.lineSeparator());
 
-        for (Song s : this.songs) {
-            sb.append("\t* ").append(s.getTitle()).append(System.lineSeparator());
+        if (!this.getSongs().isEmpty()){
+            for (Song s : this.songs) {
+                sb.append("\t* ").append(s.getTitle()).append(System.lineSeparator());
+            }
         }
+
 
         return sb.toString();
     }
@@ -48,7 +63,12 @@ public class Author {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age >= 12 && age < 125){
+            this.age = age;
+        }else{
+            throw new IllegalArgumentException("The age of the author must be between 12 and 150!");
+        }
+
     }
 
     public List<Song> getSongs() {

@@ -9,10 +9,18 @@ public class Application {
 
 
         //Create author
-        Author authorOne = new Author("Chester", 34);
-        authorOne.getSongs().add(songOne);
-        authorOne.getSongs().add(songTwo);
-        authorOne.getSongs().add(songThree);
+        Author authorOne = new Author();
+        try {
+            authorOne.setName("Chester");
+            authorOne.setAge(20);
+            authorOne.getSongs().add(songOne);
+            authorOne.getSongs().add(songTwo);
+            authorOne.getSongs().add(songThree);
+        }catch (IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        }
+
+
 
         // Print song details
         System.out.println(songOne.toString());
@@ -36,7 +44,12 @@ public class Application {
         System.out.println();
 
         //Print Author name and age
-        authorOne.printAuthorNameAndAge();
+
+            authorOne.printAuthorNameAndAge();
+
+
+
+
 
         //Print Author with songs
         System.out.println(authorOne.listAuthorWithSongs());
