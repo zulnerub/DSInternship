@@ -13,16 +13,19 @@ public class Author {
     }
 
     public void printAuthorNameAndAge(){
-        System.out.printf("%s - %d", this.getName(), this.getAge());
+        System.out.printf("%s - %d%n", this.getName(), this.getAge());
     }
     
-    public void listAuthorWithSongs(){
+    public String listAuthorWithSongs(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Author name: %s, List of songs:").append(System.lineSeparator());
-        for (Song s :
-                this.songs) {
-            sb.append("\t")
+
+        sb.append("Author name: ").append(this.name).append(", List of songs:").append(System.lineSeparator());
+
+        for (Song s : this.songs) {
+            sb.append("\t* ").append(s.getTitle()).append(System.lineSeparator());
         }
+
+        return sb.toString();
     }
 
     public String getName() {
