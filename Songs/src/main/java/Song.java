@@ -33,7 +33,7 @@ public class Song {
         if (this.getGenre().toLowerCase().equals(genreToMatch.toLowerCase())){
             System.out.println("Genres match!");
         }else{
-            System.out.println("Genre doesn't match");
+            System.out.println("Genre doesn't match!");
         }
     }
 
@@ -56,35 +56,31 @@ public class Song {
         return title;
     }
 
-    public Song setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return this;
     }
 
     public String getGenre() {
         return genre;
     }
 
-    public Song setGenre(String genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
-        return this;
     }
 
     public int getTiming() {
         return timing;
     }
 
-    public Song setTiming(int timing) {
+    public void setTiming(int timing) {
         this.timing = timing;
-        return this;
     }
 
     public String getLyrics() {
         return lyrics;
     }
 
-    public Song setLyrics(String lyrics) {
+    public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
-        return this;
     }
 }

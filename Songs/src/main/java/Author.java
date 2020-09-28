@@ -39,26 +39,23 @@ public class Author {
         return name;
     }
 
-    public Author setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public int getAge() {
         return age;
     }
 
-    public Author setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
-        return this;
     }
 
     public List<Song> getSongs() {
         return songs;
     }
 
-    public Author setSongs(List<Song> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
-        return this;
     }
 }
