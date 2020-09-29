@@ -1,11 +1,12 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * * Create object author that has name, age and list of songs.
- * Has methods to print author's songs, authors name and age, add song
- *
+ * * Create Object of Type model.Author. Can have Objects of type model.Song assigned to it in a collection.
+ * Has methods to interact with the class fields.
  */
 public class Author {
     private List<Song> songs = new ArrayList<>();
@@ -18,20 +19,25 @@ public class Author {
     }
 
     /**
-     * @return String - Author details : name and age
+     * Gets the name and age of the author formats them and creates a string representation.
+     *
+     * @return String - model.Author details : name and age
      */
     @Override
     public String toString() {
-        return "Author:" +
+        return "model.Author:" +
                 "name: '" + name + '\'' +
                 ", age: " + age;
     }
 
     /**
+     * This method gets the authors name and songs
+     * - iterates the songs and creates a string representation of the authors name and the songs titles.
+     *
      * @return String - author's name and his songs listed below on new line
      */
     public String listAuthorsSongs() {
-        return "Author name: " +
+        return "model.Author name: " +
                 name +
                 ",\nList of songs:\n" +
                 songs.stream()
@@ -40,7 +46,9 @@ public class Author {
     }
 
     /**
-     * @param song Adds a song to the author's collection of songs
+     * This method gets the author's collection of songs and adds one model.Song to the collection.
+     *
+     * @param song - model.Song to be added to the authors collection of songs.
      */
     public void addSong(Song song) {
         songs.add(song);
