@@ -1,10 +1,10 @@
-import enumeration.Genre;
 import model.Author;
 import model.Song;
 
+import static enumeration.Genre.*;
+
 /**
  * Application for creating songs and authors and using methods for manipulating them.
- *
  */
 public class Application {
 
@@ -13,9 +13,9 @@ public class Application {
         /*
          * Creating sample songs
          */
-        Song pointsOfAuthority = new Song("Points of authority", Genre.ROCK, 267, "Lorem, ipsum ....");
-        Song summerChillOut = new Song("Summer chill out", Genre.POP, 267, "Random lyrics for the random song");
-        Song dubstep = new Song("Metamorphosis", Genre.DUBSTEP, 267, "This song has no Lyrics");
+        Song pointsOfAuthority = new Song("Points of authority", ROCK, 267, "Lorem, ipsum ....");
+        Song summerChillOut = new Song("Summer chill out", POP, 267, "Random lyrics for the random song");
+        Song dubstep = new Song("Metamorphosis", DUBSTEP, 267, "This song has no Lyrics");
 
         /*
          * Creating sample author
@@ -31,11 +31,18 @@ public class Application {
          */
         System.out.println(pointsOfAuthority.toString());
 
-        System.out.println("enumeration.Genre to compare - Rock\n" +
-                pointsOfAuthority.checkIfGenresMatch("Rock") + "\n");
+        if (pointsOfAuthority.checkIfGenresMatch(DUBSTEP)) {
+            System.out.println("enumeration.Genre to compare - Rock\nGenres match!\n");
+        } else {
+            System.out.println("enumeration.Genre to compare - Rock\n" +
+                    "Genre doesn't match!\n" +
+                    "or\n" +
+                    "Song's genre is not present.");
+        }
+
 
         System.out.println("enumeration.Genre to compare - pop\n" +
-                pointsOfAuthority.checkIfGenresMatch("pop") + "\n");
+                pointsOfAuthority.checkIfGenresMatch(POP) + "\n");
 
         System.out.println(pointsOfAuthority.printSongDuration() + "\n");
 

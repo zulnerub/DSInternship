@@ -15,8 +15,19 @@ public class Song {
     public Song(String title, Genre genre, int timing, String lyrics) {
         this.title = title;
         this.genre = genre;
-        this.timing = timing;
+        setTiming(timing);
         this.lyrics = lyrics;
+    }
+
+    /**
+     * Setter to validate that a correct song duration is passed.
+     *
+     * @param timing int - integer value to indicate da duration of the song in seconds.
+     */
+    public void setTiming(int timing) {
+        if (timing > 0) {
+            this.timing = timing;
+        }
     }
 
     /**
@@ -38,19 +49,14 @@ public class Song {
     }
 
     /**
-     * Gets the timing of the model.Song checks if it is valid and returns it formatted.
+     * Gets the timing of the model.Song and returns it formatted.
      *
      * @return String - the song's duration formatted in minutes and seconds - mm:ss
-     * or
-     * message to indicate a problem.
      */
     public String printSongDuration() {
-        if (timing > 0) {
-            int minutes = timing / 60;
-            int seconds = timing % 60;
-            return "model.Song duration: " + minutes + ":" + seconds;
-        }
-        return "The duration of the song is not specified.";
+        int minutes = timing / 60;
+        int seconds = timing % 60;
+        return "model.Song duration: " + minutes + ":" + seconds;
     }
 
     /**
@@ -59,15 +65,12 @@ public class Song {
      * @param genreToMatch String - name of the genre to be compared to the song's genre
      * @return String - message if the song's genre and the supplied genre match.
      */
-    public String checkIfGenresMatch(String genreToMatch) {
+    public boolean checkIfGenresMatch(Genre genreToMatch) {
         if (isGenreValid()) {
-            if (genreToMatch.equalsIgnoreCase(genre.toString())) {
-                return "Genres match!";
-            } else {
-                return "Genre doesn't match!";
-            }
+            return genreToMatch == genre;
+        } else {
+            return false;
         }
-        return "Song's genre is not present.";
     }
 
     /**
@@ -77,7 +80,6 @@ public class Song {
      */
     public boolean isGenreValid() {
         return genre == null || genre.toString().isEmpty() || genre.toString().isBlank();
-
     }
 
     /**
