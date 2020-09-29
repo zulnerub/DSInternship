@@ -29,20 +29,25 @@ public class Application {
         /*
          * Manipulations with songs and their methods
          */
-        System.out.println(pointsOfAuthority.toString());
+        System.out.println(pointsOfAuthority);
 
         if (pointsOfAuthority.checkIfGenresMatch(DUBSTEP)) {
-            System.out.println("enumeration.Genre to compare - Rock\nGenres match!\n");
+            System.out.println("Genre to compare - Rock\nGenres match!\n");
         } else {
-            System.out.println("enumeration.Genre to compare - Rock\n" +
+            System.out.println("Genre to compare - Rock\n" +
                     "Genre doesn't match!\n" +
                     "or\n" +
                     "Song's genre is not present.");
         }
 
-
-        System.out.println("enumeration.Genre to compare - pop\n" +
-                pointsOfAuthority.checkIfGenresMatch(POP) + "\n");
+        if (pointsOfAuthority.checkIfGenresMatch(DUBSTEP)) {
+            System.out.println("Genre to compare - pop\nGenres match!\n");
+        } else {
+            System.out.println("Genre to compare - pop\n" +
+                    "Genre doesn't match!\n" +
+                    "or\n" +
+                    "Song's genre is not present.");
+        }
 
         System.out.println(pointsOfAuthority.printSongDuration() + "\n");
 
@@ -52,7 +57,7 @@ public class Application {
         /*
          * Manipulation with authors and their methods
          */
-        System.out.println(chesterBenington.toString() + "\n");
+        System.out.println(chesterBenington + "\n");
 
         System.out.println(chesterBenington.listAuthorsSongs());
     }

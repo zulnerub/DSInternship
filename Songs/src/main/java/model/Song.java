@@ -56,7 +56,7 @@ public class Song {
     public String printSongDuration() {
         int minutes = timing / 60;
         int seconds = timing % 60;
-        return "model.Song duration: " + minutes + ":" + seconds;
+        return "Song duration: " + minutes + ":" + seconds;
     }
 
     /**
@@ -79,7 +79,7 @@ public class Song {
      * @return boolean - returns if the genre is valid or not.
      */
     public boolean isGenreValid() {
-        return genre == null || genre.toString().isEmpty() || genre.toString().isBlank();
+        return genre == null || genre.name().isBlank();
     }
 
     /**
@@ -89,10 +89,10 @@ public class Song {
      */
     @Override
     public String toString() {
-        return "model.Song Details:" + System.lineSeparator() +
-                "\t* Title: " + title + System.lineSeparator() +
-                "\t* enumeration.Genre: " + genre + System.lineSeparator() +
-                "\t* Timing: " + timing + System.lineSeparator() +
-                "\t* Lyrics: " + lyrics + System.lineSeparator();
+        return "Song Details:" +
+                "\n\t* Title: " + title +
+                "\n\t* Genre: " + genre +
+                "\n\t* Timing: " + timing +
+                "\n\t* Lyrics: " + lyrics + "\n";
     }
 }

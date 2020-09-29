@@ -25,7 +25,7 @@ public class Author {
      */
     @Override
     public String toString() {
-        return "model.Author:" +
+        return "Author:" +
                 "name: '" + name + '\'' +
                 ", age: " + age;
     }
@@ -37,7 +37,7 @@ public class Author {
      * @return String - author's name and his songs listed below on new line
      */
     public String listAuthorsSongs() {
-        return "model.Author name: " +
+        return "Author name: " +
                 name +
                 ",\nList of songs:\n" +
                 songs.stream()
