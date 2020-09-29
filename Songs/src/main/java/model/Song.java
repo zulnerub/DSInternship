@@ -64,12 +64,17 @@ public class Song {
             if (genreToMatch.equalsIgnoreCase(genre.toString())) {
                 return "Genres match!";
             } else {
-                return "enumeration.Genre doesn't match!";
+                return "Genre doesn't match!";
             }
         }
-        return "model.Song's genre is not present.";
+        return "Song's genre is not present.";
     }
 
+    /**
+     * Gets the genre of the song and checks its validity.
+     *
+     * @return boolean - returns if the genre is valid or not.
+     */
     public boolean isGenreValid() {
         return genre == null || genre.toString().isEmpty() || genre.toString().isBlank();
 
