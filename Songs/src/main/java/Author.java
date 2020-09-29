@@ -31,9 +31,8 @@ public class Author {
      */
     public String listAuthorsSongs() {
         return "Author name: " +
-                this.name +
-                ",\nList of songs:" +
-                System.lineSeparator() +
+                name +
+                ",\nList of songs:\n" +
                 songs.stream()
                         .map(Song::getTitle)
                         .collect(Collectors.joining("\n"));
