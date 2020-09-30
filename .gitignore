@@ -2,6 +2,6 @@
 **/*.class
 #ignoring all directories named .idea
 **/.idea/
-#ignoring files with matching name ####.#### anywhere: (listed below)
+#ignoring files with matching name and filepath: (listed below)
 Songs/Songs.iml
 Songs/pom.xml
