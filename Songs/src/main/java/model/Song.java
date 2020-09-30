@@ -27,6 +27,8 @@ public class Song {
     public void setTiming(int timing) {
         if (timing > 0) {
             this.timing = timing;
+        } else {
+            this.timing = 0;
         }
     }
 
@@ -54,8 +56,13 @@ public class Song {
      * @return String - the song's duration formatted in minutes and seconds - mm:ss
      */
     public String printSongDuration() {
-        int minutes = timing / 60;
-        int seconds = timing % 60;
+        int minutes = 0;
+        int seconds = 0;
+        if (timing > 0) {
+            minutes = timing / 60;
+            seconds = timing % 60;
+        }
+
         return "Song duration: " + minutes + ":" + seconds;
     }
 
