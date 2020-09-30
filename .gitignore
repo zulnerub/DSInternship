@@ -1,2 +1,4 @@
 **/*.class
 **/.idea/
+**/Songs.iml
+**/pom.xml
